@@ -1,58 +1,75 @@
-<h1>JWipe - Disk Sanitization</h1>
+# Loan Default Prediction
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
+## 📚 Overview
+Predicting loan default is a critical task for financial institutions to manage risk and minimize losses.  
+In this project, I build machine learning models to predict whether a borrower will default on a loan, based on their financial and personal information.
 
-<h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
-<br />
+---
 
+## 🎯 Problem Statement
+Financial institutions lose billions each year due to loan defaults.  
+Accurately predicting which borrowers are likely to default enables better decision-making, reduces risk, and improves profitability.
 
-<h2>Languages and Utilities Used</h2>
+---
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
+## 🛠️ Tools & Technologies
+- Python (Pandas, NumPy, Scikit-learn, XGBoost, imbalanced-learn)  
+- Matplotlib, Seaborn (visualizations)  
+- SHAP (model explainability)  
+- Streamlit (optional: web app)  
+- Jupyter Notebook  
 
-<h2>Environments Used </h2>
+---
 
-- <b>Windows 10</b> (21H2)
+## 📈 Project Workflow
 
-<h2>Program walk-through:</h2>
+### 1. Data Collection
+- Used LendingClub Loan Dataset from Kaggle.
+- Focused on loans issued in 2018.
 
-<p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+### 2. Data Cleaning
+- Handled missing values through imputation and feature removal.
+- Created a binary target variable: `1 = Default`, `0 = Fully Paid`.
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+### 3. Exploratory Data Analysis (EDA)
+- Analyzed borrower features: loan amount, income, credit score, employment length.
+- Visualized default rates across key borrower segments.
+
+### 4. Model Building
+- Built baseline Logistic Regression model.
+- Developed tree-based models (Random Forest, XGBoost).
+- Handled class imbalance using SMOTE and class weight adjustments.
+
+### 5. Model Evaluation
+- Evaluated models using Precision, Recall, F1-Score, and ROC-AUC.
+- Visualized ROC and Precision-Recall curves.
+
+### 6. Model Interpretation
+- Analyzed feature importance to identify key drivers of loan default.
+- Applied SHAP to explain individual model predictions.
+
+### 7. Business Recommendations
+- Proposed strategies for risk mitigation based on model outputs.
+- Suggested using model scores to enhance underwriting processes.
+
+---
+
+## 📊 Key Results
+- XGBoost achieved an ROC-AUC score of **0.84** on the test set.
+- Top predictors of default:
+  - Credit score
+  - Debt-to-income ratio
+  - Loan amount
+  - Employment length
+
+---
+
+## 🚀 Future Work
+- Incorporate behavioral data (e.g., payment history over time).
+- Build a live Streamlit app for real-time loan risk scoring.
+- Explore cost-sensitive learning to minimize false negatives.
+
+---
+
+## 📂 Project Structure
+
