@@ -2,6 +2,8 @@
 
 This project builds machine learning models to predict whether a borrower will **default** on a loan or **fully repay** it, using 2018 data from LendingClub. The workflow includes data cleaning, exploratory data analysis (EDA), feature engineering, model training (Logistic Regression, Random Forest, XGBoost), and model interpretation using SHAP values.
 
+Data: https://www.kaggle.com/datasets/wordsforthewise/lending-club
+
 ---
 
 ## 📌 Project Objective
