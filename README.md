@@ -1,75 +1,87 @@
-# Loan Default Prediction
+# 💳 Loan Default Prediction Using LendingClub Data
 
-## 📚 Overview
-Predicting loan default is a critical task for financial institutions to manage risk and minimize losses.  
-In this project, I build machine learning models to predict whether a borrower will default on a loan, based on their financial and personal information.
+This project builds machine learning models to predict whether a borrower will **default** on a loan or **fully repay** it, using 2018 data from LendingClub. The workflow includes data cleaning, exploratory data analysis (EDA), feature engineering, model training (Logistic Regression, Random Forest, XGBoost), and model interpretation using SHAP values.
 
 ---
 
-## 🎯 Problem Statement
-Financial institutions lose billions each year due to loan defaults.  
-Accurately predicting which borrowers are likely to default enables better decision-making, reduces risk, and improves profitability.
+## 📌 Project Objective
+
+Financial institutions face significant risk from loan defaults. The goal of this project is to create a reliable, interpretable model that can predict default risk at the time of loan application—helping lenders make smarter decisions and reduce financial losses.
 
 ---
 
-## 🛠️ Tools & Technologies
-- Python (Pandas, NumPy, Scikit-learn, XGBoost, imbalanced-learn)  
-- Matplotlib, Seaborn (visualizations)  
-- SHAP (model explainability)  
-- Streamlit (optional: web app)  
-- Jupyter Notebook  
+## 🛠️ Tools & Libraries
+
+- Python, Pandas, NumPy
+- Scikit-learn, XGBoost
+- Matplotlib, Seaborn
+- SHAP (for model interpretation)
+- imbalanced-learn (SMOTE)
+- Jupyter Notebook
 
 ---
 
-## 📈 Project Workflow
+## 📊 Workflow Overview
 
-### 1. Data Collection
-- Used LendingClub Loan Dataset from Kaggle.
-- Focused on loans issued in 2018.
+### 1. Data Preparation
+- Filtered LendingClub data to loans issued in **2018**
+- Retained only **“Fully Paid”** and **“Charged Off”** loans
+- Created binary target: `1 = default`, `0 = fully paid`
+- Dropped post-loan outcome fields and high-NA columns
+- Handled missing values with mode/median imputation
 
-### 2. Data Cleaning
-- Handled missing values through imputation and feature removal.
-- Created a binary target variable: `1 = Default`, `0 = Fully Paid`.
+### 2. Exploratory Data Analysis (EDA)
+- Plotted distributions (e.g., loan amount)
+- Analyzed default rates across income brackets
+- Visualized correlation heatmap of numeric features
 
-### 3. Exploratory Data Analysis (EDA)
-- Analyzed borrower features: loan amount, income, credit score, employment length.
-- Visualized default rates across key borrower segments.
+### 3. Preprocessing
+- One-hot encoded categorical features (e.g., grade, term, verification status)
+- Used **SMOTE** to balance the training dataset
 
-### 4. Model Building
-- Built baseline Logistic Regression model.
-- Developed tree-based models (Random Forest, XGBoost).
-- Handled class imbalance using SMOTE and class weight adjustments.
+### 4. Model Training & Evaluation
+- Trained three models:
+  - Logistic Regression (baseline)
+  - Random Forest
+  - XGBoost
+- Evaluated models with:
+  - Precision, Recall, F1-Score
+  - ROC-AUC
+  - Confusion Matrix
 
-### 5. Model Evaluation
-- Evaluated models using Precision, Recall, F1-Score, and ROC-AUC.
-- Visualized ROC and Precision-Recall curves.
-
-### 6. Model Interpretation
-- Analyzed feature importance to identify key drivers of loan default.
-- Applied SHAP to explain individual model predictions.
-
-### 7. Business Recommendations
-- Proposed strategies for risk mitigation based on model outputs.
-- Suggested using model scores to enhance underwriting processes.
-
----
-
-## 📊 Key Results
-- XGBoost achieved an ROC-AUC score of **0.84** on the test set.
-- Top predictors of default:
-  - Credit score
-  - Debt-to-income ratio
-  - Loan amount
-  - Employment length
+### 5. Feature Importance
+- Extracted feature importances from Random Forest and XGBoost
+- Used **SHAP values** to interpret how features impact individual predictions
 
 ---
 
-## 🚀 Future Work
-- Incorporate behavioral data (e.g., payment history over time).
-- Build a live Streamlit app for real-time loan risk scoring.
-- Explore cost-sensitive learning to minimize false negatives.
+## 🔍 Key Insights
+
+- **Top predictors** of default: `interest rate`, `loan grade`, `term`, `debt-to-income ratio`, and **recent credit inquiries**.
+- The **XGBoost model** achieved the highest performance with a solid ROC-AUC score and improved recall.
+- SHAP analysis showed `home_ownership_RENT`, `inq_last_6mths`, and `grade_B` had strong impact on prediction outcomes.
 
 ---
 
-## 📂 Project Structure
+## 📁 Repository Structure
 
+
+
+
+---
+
+## 📌 Future Improvements
+
+- Hyperparameter tuning (GridSearchCV)
+- Deploy model using Streamlit for interactive scoring
+- Add economic variables or credit bureau features for richer modeling
+
+---
+
+## 📬 Contact
+
+Feel free to connect or reach out if you have questions!
+
+**Jonathan Adamson**  
+📧 jonathan.adamson324@gmail.com  
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/jonathanmadamson/)  
