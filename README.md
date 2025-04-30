@@ -65,13 +65,6 @@ Financial institutions face significant risk from loan defaults. The goal of thi
 
 ---
 
-## 📁 Repository Structure
-
-
-
-
----
-
 ## 📌 Future Improvements
 
 - Hyperparameter tuning (GridSearchCV)
